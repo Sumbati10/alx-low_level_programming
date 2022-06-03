@@ -19,14 +19,19 @@ int main(void)
 				{
 					putchar(c);
 					putchar(i);
-					putchar(' ');
+					putchar(k);
+
+					if (c != '7')
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
 		}
 	}
-}
 
-putchar('\n');
+	putchar('\n');
 
-return (0);
+	return (0);
 }
