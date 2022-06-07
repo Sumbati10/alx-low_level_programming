@@ -6,14 +6,11 @@
  */
 int main(void)
 {
-	char c[] = "Main";
-	int i;
+_putchar('m');
+_putchar('a');
+_putchar('i');
+_putchar('n');
+_putchar('\n');
 
-	for (i = 0; i < 4; i++)
-	{
-		_putchar(c[i]);
-	}
-	_putchar('\n');
-	return (0);
+return (0);
 }
-
