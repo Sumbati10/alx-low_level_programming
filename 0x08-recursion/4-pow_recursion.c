@@ -1,6 +1,6 @@
 /*
  * File: 4-pow_recursion.c
- * Auth: Gedeon Obae Gekonge
+ * Auth: Linda Sumbati
  */
 
 #include "main.h"
