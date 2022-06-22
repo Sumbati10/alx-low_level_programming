@@ -1,6 +1,6 @@
 /*
  * File: 100-wildcmp.c
- * Auth: Gedeon Obae Gekonge
+ * Auth: Linda Sumbati
  */
 
 #include "main.h"
