@@ -1,7 +1,7 @@
 
 /*
  * File: 6-is_prime_number.c
- * Auth: Gedeon Obae Gekonge
+ * Auth: Linda Sumbati
  */
 
 #include "main.h"
