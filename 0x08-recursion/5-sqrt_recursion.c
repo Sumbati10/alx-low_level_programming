@@ -1,7 +1,7 @@
 
 /*
  * File: 5-sqrt_recursion.c
- * Auth: Gedeon Obae Gekonge
+ * Auth: Sumbati Linda
  */
 
 #include "main.h"
