@@ -1,6 +1,6 @@
 /*
  * File: 2-strlen_recursion.c
- * Auth: Gedeon Obae Gekonge
+ * Auth: Linda Sumbati
  */
 
 #include "main.h"
