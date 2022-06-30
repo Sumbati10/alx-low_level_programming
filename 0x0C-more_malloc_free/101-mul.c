@@ -1,92 +1,56 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * _puts - prints a string, followed by a new line,
- * @str: pointer to the string to print
- * Return: void
+ * _realloc - Reallocates a memory block using malloc and free.
+ * @ptr: A pointer to the memory previously allocated.
+ * @old_size: The size in bytes of the allocated space for ptr.
+ * @new_size: The size in bytes for the new memory block.
+ *
+ * Return: If new_size == old_size - ptr.
+ *          If new_size == 0 and ptr is not NULL - NULL.
+ *          Otherwise - a pointer to the reallocated memory block.
  */
 
-
-void _puts(char *str)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	int i = 0;
-	while (str[i])
-	{
-		_putchar(str[i]);
-		i++;
+	void *mem;
+	char *ptr_copy, *filler;
+	unsigned int index;
 
+	if (new_size == old_size)
+		return (ptr);
+
+	if (ptr == NULL)
+	{
+		mem = malloc(new_size);
+
+		if (mem == NULL)
+			return (NULL);
+
+		return (mem);
 	}
 
-}
-
-/**
- * _atoi - convert a string to an integer.
- * @s: char type string
- * Return: integer converted
- */
-
-int _atoi(const char *s)
-{
-	 int sign = 1;
-	 unsigned long int resp = 0, firstNum, i;
-
-	 for (firstNum = 0; !(s[firstNum] >= 48 && s[firstNum] <= 57); firstNum++)
-	 {
-		 if (s[firstNum] == '-')
-		 {
-			 sign *= -1;
-		 }
-
-	 }
-
-	 for (i = firstNum; s[i] >= 48 && s[i] <= 57; i++)
-	 {
-		 resp *= 10;
-		 resp += (s[i] - 48);
-	 }
-
-	 return (sign * resp);
-}
-
-/**
- * print_int - prints an integer.
- * @n: int
- * Return: 0
- */
-
-void print_int(unsigned long int n)
-{
-
-	unsigned  long int divisor = 1, i, resp;
-
-	for (i = 0; n / divisor > 9; i++, divisor *= 10);
-
-	for (; divisor >= 1; n %= divisor, divisor /= 10)
+	if (new_size == 0 && ptr != NULL)
 	{
-		resp = n / divisor;
-		_putchar('0' + resp);
+		free(ptr);
+		return (NULL);
 	}
 
-}
+	ptr_copy = ptr;
+	mem = malloc(sizeof(*ptr_copy) * new_size);
 
-/**
- * main - print the result of the multiplication, followed by a new line
- * @argc: int
- * @argv: list
- * Return: 0
- */
-
-int main(int argc, char const *argv[])
-{
-	(void)argc;
-
-	if (argc != 3)
+	if (mem == NULL)
 	{
-		_puts("Error ");
-		exit(98);
+		free(ptr);
+		return (NULL);
 	}
-	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
 
-	return (0);
+	filler = mem;
+
+	for (index = 0; index < old_size && index < new_size; index++)
+		filler[index] = *ptr_copy++;
+
+	free(ptr);
+	return (mem);
 }
